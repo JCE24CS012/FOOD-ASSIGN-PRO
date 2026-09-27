@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f2" />
+    <title>Tiffin Club - Indian favorites, delivered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Tiffin Club home"><span class="brand-mark">t</span><span>tiffin club<span class="brand-period">.</span></span></a>
+      <div class="delivery-address"><span class="address-icon" aria-hidden="true">⌖</span><span><small>Delivering to</small><strong>Home <span class="address-chevron">v</span></strong></span></div>
+      <div class="topbar-actions">
+        <span class="user-greeting" id="userGreeting" hidden></span>
+        <button class="login-button" id="loginButton" type="button">Log in</button>
+      </div>
+    </header>
+
+    <main id="top" class="page-shell">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> INDIA'S KITCHENS, CLOSE TO HOME</p>
+          <h1 id="heroTitle">Big Indian flavor.<br />Right on time.</h1>
+          <p class="hero-subtitle">From slow-cooked biryani to a crisp dosa, your favorites are just around the corner.</p>
+          <a class="hero-link" href="#restaurants">Explore the menu <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="hero-image" role="img" aria-label="A colorful Indian meal with rice, curry, and fresh herbs"></div>
+        <div class="hero-note"><span class="note-star" aria-hidden="true">✳</span><span><strong>Fresh from the tandoor</strong><small>Made with care, nearby</small></span></div>
+      </section>
+
+      <section class="browse-section" id="restaurants" aria-labelledby="browseTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MADE WITH MASALA</p>
+            <h2 id="browseTitle">Find your kind of delicious.</h2>
+          </div>
+          <label class="search-box" for="foodSearch">
+            <span aria-hidden="true" class="search-icon"></span>
+            <input id="foodSearch" type="search" placeholder="Dishes, restaurants..." autocomplete="off" />
+            <kbd>/</kbd>
+          </label>
+        </div>
+
+        <div class="restaurant-row" id="restaurantList" aria-label="Choose a restaurant"></div>
+
+        <div class="menu-toolbar">
+          <div>
+            <h3 id="menuTitle">Popular near you</h3>
+            <p id="menuSubtitle">Fresh picks from local kitchens</p>
+          </div>
+          <label class="sort-control">Sort by
+            <select id="sortSelect" aria-label="Sort menu items">
+              <option value="popular">Popular</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="category-list" id="categoryList" aria-label="Filter by food category"></div>
+        <div class="food-grid" id="foodGrid" aria-live="polite"></div>
+        <p class="empty-state" id="emptyState" hidden>No dishes found. Try another search.</p>
+      </section>
+
+      <aside class="cart-panel" aria-labelledby="cartTitle">
+        <div class="cart-heading">
+          <div><p class="eyebrow">YOUR ORDER</p><h2 id="cartTitle">Your bag <span id="cartCount" class="cart-count">0</span></h2></div>
+          <span class="bag-mark" aria-hidden="true">+</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty"><span class="empty-bag" aria-hidden="true">○</span><strong>Your bag is taking a breather</strong><p>Add something delicious to get started.</p></div>
+        <div class="cart-bottom" id="cartBottom" hidden>
+          <div class="delivery-fee"><span>Delivery</span><span id="deliveryFee">₹39</span></div>
+          <div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+          <button class="checkout-button" id="checkoutButton" type="button">Place order <span aria-hidden="true">&rarr;</span></button>
+          <p class="cart-footnote">Taxes calculated at checkout</p>
+        </div>
+      </aside>
+
+      <section class="confirmation" id="confirmation" aria-live="polite" hidden>
+        <span class="confirmation-check" aria-hidden="true">&#10003;</span>
+        <div><p class="eyebrow">ORDER CONFIRMED</p><h2>Good things are on their way.</h2><p id="confirmationDetails"></p></div>
+        <button class="dismiss-button" id="dismissConfirmation" type="button" aria-label="Dismiss order confirmation">&times;</button>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span class="brand brand-small"><span class="brand-mark">t</span><span>tiffin club<span class="brand-period">.</span></span></span><span>Good food. Apna style.</span><span>Prototype ordering experience</span></footer>
+
+    <dialog class="login-dialog" id="loginDialog" aria-labelledby="loginTitle">
+      <form class="login-form" id="loginForm" novalidate>
+        <button class="dialog-close" id="closeLogin" type="button" aria-label="Close login">&times;</button>
+        <span class="brand-mark dialog-mark">t</span>
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2 id="loginTitle">Let's get you fed.</h2>
+        <p class="dialog-copy">Log in to place your order.</p>
+        <label for="emailInput">Email address</label>
+        <input id="emailInput" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" name="password" type="password" placeholder="At least 4 characters" autocomplete="current-password" minlength="4" required />
+        <p class="form-error" id="loginError" role="alert"></p>
+        <button class="checkout-button login-submit" type="submit">Continue <span aria-hidden="true">&rarr;</span></button>
+        <p class="dialog-note">Prototype login: any valid email and password with 4+ characters.</p>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
